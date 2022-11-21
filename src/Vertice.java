@@ -12,8 +12,25 @@ public class Vertice {
 		this.grau = 0;
 	}
 	
-	public void adicionarAresta(Vertice destino, int custo){
+	public void adicionarLigacao(Vertice destino, int custo){
 		Aresta novaAresta = new Aresta(this, destino, custo);
 		ligacoes.add(novaAresta);
+	}
+	
+	public int getId(){
+		return id;
+	}
+	
+	public List getLigacoes(){
+		return ligacoes;
+	}
+	
+	public int getGrau(){
+		return grau;
+	}
+	
+	@Override
+	public String toString(){
+		return "Casa " + id;
 	}
 }
