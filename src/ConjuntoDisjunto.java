@@ -9,9 +9,9 @@ public class ConjuntoDisjunto<E> {
         return this;
     }
 
-    ConjuntoDisjunto<?> Union(ConjuntoDisjunto<?> outro){
-        ConjuntoDisjunto<?> representante = this.Find();
-        ConjuntoDisjunto<?> outroRepresentante = outro.Find();//outroRepresetante
+    ConjuntoDisjunto<?> union(ConjuntoDisjunto<?> outro){
+        ConjuntoDisjunto<?> representante = this.find();
+        ConjuntoDisjunto<?> outroRepresentante = outro.find();//outroRepresetante
         
         System.out.println(representante);
         if(outroRepresentante.ordem < representante.ordem){//se a ordem do outro representante for menor que o representante da casa atual
@@ -29,17 +29,17 @@ public class ConjuntoDisjunto<E> {
         }
     }
 
-    ConjuntoDisjunto<?> Find(){
+    public ConjuntoDisjunto<?> find(){
         if(this.representante == this){
             return this;
         }
         else{
-            return this.representante.Find();
+            return this.representante.find();
         }
     }
 
      static boolean areMerged(ConjuntoDisjunto<?>c1, ConjuntoDisjunto<?> c2){
-        if(c1.Find() == c2.Find()){
+        if(c1.find() == c2.find()){
             return true;
         }
         else{
