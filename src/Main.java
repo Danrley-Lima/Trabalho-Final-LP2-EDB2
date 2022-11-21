@@ -1,15 +1,27 @@
+import java.util.List;
+
 public class Main {
 	public static void main(String[] args) {
-		ConjuntoDisjunto c1 = new ConjuntoDisjunto();
-		ConjuntoDisjunto c2 = new ConjuntoDisjunto();
-		ConjuntoDisjunto c3 = new ConjuntoDisjunto();
-		c1.MakeSet(1);
-		c2.MakeSet(2);
-		c3.MakeSet(3);
+		Grafo grafo = new Grafo();
+		grafo.addVertice(1);
+		grafo.addVertice(2);
+		grafo.addVertice(3);
 		
-		c1.Union(c2);
-		c3.Union(c1);
-		System.out.println(c3.Find());
-		System.out.println(c1.Find());
+		List<Vertice> vertices = grafo.getVertices();
+		grafo.addAresta(vertices.get(0), vertices.get(1), 8);
+		grafo.addAresta(vertices.get(2), vertices.get(1), 5);
+		
+		/*
+		 * Teste fora do grafo para ver se os vertices
+		 * estão guardando suas ligações
+		 */
+		System.out.println("Ligações: ");
+		for(Vertice v:vertices){
+			List<Aresta> ligacoes = v.getLigacoes();
+			for(Aresta a:ligacoes){
+				System.out.println(a.getVertice1() + " " + a.getVertice2());
+			}
+		}
+		//grafo.imprimeLigacoes();
 	}
 }
