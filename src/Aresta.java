@@ -8,4 +8,16 @@ public class Aresta {
 		this.vertice2 = vertice2;
 		this.custo = custo;
 	}
+	
+	public int getCusto(){
+		return custo;
+	}
+	
+	public Vertice getVertice1(){
+		return vertice1;
+	}
+	
+	public Vertice getVertice2(){
+		return vertice2;
+	}
 }
