@@ -1,4 +1,4 @@
-public class Aresta {
+public class Aresta implements Comparable<Aresta>{
 	private int custo;
 	private Vertice vertice1;
 	private Vertice vertice2;
@@ -7,6 +7,10 @@ public class Aresta {
 		this.vertice1 = vertice1;
 		this.vertice2 = vertice2;
 		this.custo = custo;
+	}
+	
+	public int compareTo(Aresta outraAresta){
+		return this.custo - outraAresta.getCusto();
 	}
 	
 	public int getCusto(){
