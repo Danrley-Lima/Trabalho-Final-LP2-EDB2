@@ -30,9 +30,12 @@ public class Grafo {
 	 * 
 	 * @param id Identificador do vértice (casa)
 	 * 
+	 * IDEIA: Ao criar um novo vertice, cria um novo conjunto
+	 * disjunto. 
 	 * */
 	public void addVertice(int id){
 		Vertice novoVertice = new Vertice(id);
+		
 		vertices.add(novoVertice);
 	}
 	
@@ -50,6 +53,23 @@ public class Grafo {
 	 * 
 	 * */
 	public void addAresta(Vertice vertice1, Vertice vertice2, int custo){
+		/* kruskal ordena pelo peso
+		 * temos que gerar todas as árvores possíveis
+		int limite = 2;
+		if(vertice2.getOrdem() == limite){
+			System.out.println(vertice2 + " já está no limite de ligações!");
+			return;
+		}
+		
+		if(vertice1.find() == vertice2.find()){
+			//lança uma exceção?
+			System.out.println("Erro! adicionar essa aresta entre " + vertice1 + " e " + vertice2 + " geraria um ciclo!");
+			return;
+		}
+		
+		vertice1.union(vertice2);
+		*/
+		
 		Aresta novaAresta = new Aresta(vertice1, vertice2, custo);
 		arestas.add(novaAresta);
 		
@@ -58,7 +78,6 @@ public class Grafo {
 		vertice2.adicionarLigacao(vertice1, custo);
 		return;
 	}
-	
 	
 	/*
 	 * Método para gerar a árvore de menor custo
@@ -78,7 +97,7 @@ public class Grafo {
 	public void imprimeLigacoes(){
 		System.out.println("Vertices: ");
 		for(Vertice v:vertices){
-			System.out.println("Casa " + v.getId());
+			System.out.println(v);
 		}
 		System.out.print("\n\nligações: \n");
 		
