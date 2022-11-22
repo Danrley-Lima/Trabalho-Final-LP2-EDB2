@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /*
@@ -81,8 +82,18 @@ public class Grafo {
 	
 	/*
 	 * Método para gerar a árvore de menor custo
-	public Arvore gerarArvore(){
-	}*/
+	 */
+	public /*Arvore*/void gerarArvore(){
+		//ordena o array de arestas
+		/*
+		 * vai ordenar o array original ou criar um array novo ordenado?
+		 * vamo ordenar o array original, se ñ fizer sentido, a gente 
+		 * cria um novo array e ordena ele
+		 * */
+		
+		Collections.sort(arestas);
+		
+	}
 	
 	public List<Vertice> getVertices(){
 		return vertices;
