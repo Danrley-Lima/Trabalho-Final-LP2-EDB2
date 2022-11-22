@@ -4,10 +4,12 @@ import java.util.List;
 public class Vertice extends ConjuntoDisjunto{
 	private int id;
 	private List<Aresta> ligacoes;
+	private int grau;
 	
 	Vertice(int id){
 		this.id = id;
 		this.ligacoes = new ArrayList<>();
+		this.grau = 0;
 		
 		//Atributos de ConjuntoDisjunto
 		this.MakeSet(this);
@@ -21,7 +23,7 @@ public class Vertice extends ConjuntoDisjunto{
 	public void adicionarLigacao(Vertice destino, int custo){
 		Aresta novaAresta = new Aresta(this, destino, custo);
 		this.ordem++;
-		destino.aumentaOrdem();
+		destino.aumentaGrau();
 		ligacoes.add(novaAresta);
 	}
 	
@@ -33,12 +35,12 @@ public class Vertice extends ConjuntoDisjunto{
 		return ligacoes;
 	}
 	
-	public int getOrdem(){
-		return ordem;
+	public int getGrau(){
+		return grau;
 	}
 	
-	public void aumentaOrdem(){
-		this.ordem++;
+	public void aumentaGrau(){
+		this.grau++;
 	}
 	
 	@Override
