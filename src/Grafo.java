@@ -82,7 +82,6 @@ public class Grafo {
 	/*
 	 * Método para gerar a árvore de menor custo
 	public Arvore gerarArvore(){
-		
 	}*/
 	
 	public List<Vertice> getVertices(){
