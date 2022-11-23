@@ -1,8 +1,5 @@
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -29,6 +26,14 @@ public class LeitorArquivo {
         return scan.nextInt();
     }
 
+    /**
+     * Constrói as arestas dos vértices, utiliza as informações contidas no arquivo.
+     * 
+     * @param grafo       Classe que contém os vértices que serão adicionados suas
+     *                    arestas e custo.
+     * @param numVertices Número de vértices para que a função saíba quantos
+     *                    vértices vão ser manipulados.
+     */
     public void construirArestas(Grafo grafo, int numVertices) {
         List<Vertice> vertices = grafo.getVertices();
         int custo;
