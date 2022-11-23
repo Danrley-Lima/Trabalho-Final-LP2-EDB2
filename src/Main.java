@@ -58,6 +58,8 @@ public class Main {
 		 * System.out.println("representante da " + vertices.get(3) + " é: " +
 		 * vertices.get(3).find());
 		 */
+		
+		grafo.gerarArvore();
 
 	}
 }
