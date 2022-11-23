@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Vertice extends ConjuntoDisjunto {
+public class Vertice extends ConjuntoDisjunto<Vertice> {
 	private int id;
 	private List<Aresta> ligacoes;
 	private int grau;

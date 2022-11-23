@@ -1,32 +1,24 @@
+import java.io.FileNotFoundException;
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-
+	public static void main(String[] args) throws FileNotFoundException {
 		Grafo grafo = new Grafo();
-		int q, d, casa;
-		q = scan.nextInt();
-		d = scan.nextInt();
+		LeitorArquivo leitor = new LeitorArquivo(args[0]);
 
-		// cria as casas (vértices
-		for (int i = 1; i <= q; i++) {
+		int casa;
+		int quantCasas = leitor.lerQuantCasas();
+		int limitadorArestas = leitor.lerLimitadorAresta();
+
+		System.out.println("**** Quantidade de casas: " + quantCasas + ". Limitador de arestas: " + limitadorArestas);
+
+		// Adiciona ao grafo a quantidade de instâncias de vértices correspondentes.
+		for (int i = 1; i <= quantCasas; i++) {
 			grafo.addVertice(i);
 		}
-
-		/*
-		 * LÓGICA PARA A LEITURA DOS DADOS QUE VEM DO ARQUIVO
-		 * Dá pra melhorar, mas o grosso é isso
-		 */
-		int c;
 		List<Vertice> vertices = grafo.getVertices();
-		for (int i = 0; i < vertices.size() - 1; i++) {
-			for (int j = i + 1; j < vertices.size(); j++) {
-				c = scan.nextInt();
-				grafo.addAresta(vertices.get(i), vertices.get(j), c);
-			}
-		}
+
+		leitor.construirArestas(grafo, quantCasas);
 
 		/*
 		 * grafo.addVertice(1);
@@ -67,6 +59,5 @@ public class Main {
 		 * vertices.get(3).find());
 		 */
 
-		scan.close();
 	}
 }
