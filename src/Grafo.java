@@ -95,8 +95,32 @@ public class Grafo {
 		 * cria um novo array e ordena ele
 		 */
 
+		List<Aresta> arvoreResultado = new ArrayList<>();
+		
 		Collections.sort(arestas);
-
+		
+		int i = 0;
+		int j = 0;
+		
+		while(j < vertices.size() - 1){
+			Aresta proxAresta;
+			proxAresta = arestas.get(i);
+			
+			ConjuntoDisjunto representanteOrigem = arestas.get(i).getVertice1().find();
+			ConjuntoDisjunto representanteDestino = arestas.get(i).getVertice2().find();
+			
+			if(representanteOrigem != representanteDestino){
+				arvoreResultado.add(proxAresta);
+				arestas.get(j).getVertice1().union(arestas.get(j).getVertice2());
+				j++;
+			}
+			i++;
+		}
+		
+		//ver resultado
+		for(Aresta a:arvoreResultado){
+			System.out.println(a.getVertice1() + " -> " + a.getVertice2() + " custo: " + a.getCusto());
+		}
 	}
 
 	public List<Vertice> getVertices() {
