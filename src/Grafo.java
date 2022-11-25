@@ -34,8 +34,8 @@ public class Grafo {
 	 * IDEIA: Ao criar um novo vertice, cria um novo conjunto
 	 * disjunto.
 	 */
-	public void addVertice(int id) {
-		Vertice novoVertice = new Vertice(id);
+	public void addVertice(int id, int grauMax) {
+		Vertice novoVertice = new Vertice(id, grauMax);
 
 		vertices.add(novoVertice);
 	}
@@ -44,37 +44,11 @@ public class Grafo {
 	 * Método para criar uma aresta e add ela à lista
 	 * de arestas do grafo
 	 * 
-	 * CREIO QUE AQUI TEREMOS QUE VERIFICAR SE O GRAFO
-	 * FICA CÍCLICO AO ADD A NOVA ARESTA, MAS ISSO
-	 * ENVOLVE CONJUNTO DISJUNTOS, EU ACHO
-	 * 
 	 * @param vertice1 Vertice que quer fazer a conexão
-	 * 
 	 * @param vertice2 Vertice que vai receber a conexão
-	 * 
 	 * @param custo Custo da conexão
-	 * 
 	 */
 	public void addAresta(Vertice vertice1, Vertice vertice2, int custo) {
-		/*
-		 * kruskal ordena pelo peso
-		 * temos que gerar todas as árvores possíveis
-		 * int limite = 2;
-		 * if(vertice2.getOrdem() == limite){
-		 * System.out.println(vertice2 + " já está no limite de ligações!");
-		 * return;
-		 * }
-		 * 
-		 * if(vertice1.find() == vertice2.find()){
-		 * //lança uma exceção?
-		 * System.out.println("Erro! adicionar essa aresta entre " + vertice1 + " e " +
-		 * vertice2 + " geraria um ciclo!");
-		 * return;
-		 * }
-		 * 
-		 * vertice1.union(vertice2);
-		 */
-
 		Aresta novaAresta = new Aresta(vertice1, vertice2, custo);
 		arestas.add(novaAresta);
 
@@ -101,18 +75,26 @@ public class Grafo {
 		
 		int i = 0;
 		int j = 0;
+		//int grauMax = 2;
 		
 		while(j < vertices.size() - 1){
+			//j vai contar os vertices gerados na arvore minima
 			Aresta proxAresta;
 			proxAresta = arestas.get(i);
 			
 			ConjuntoDisjunto representanteOrigem = arestas.get(i).getVertice1().find();
 			ConjuntoDisjunto representanteDestino = arestas.get(i).getVertice2().find();
+			Vertice origem = arestas.get(i).getVertice1();
+			Vertice destino = arestas.get(i).getVertice2();
 			
 			if(representanteOrigem != representanteDestino){
-				arvoreResultado.add(proxAresta);
-				arestas.get(j).getVertice1().union(arestas.get(j).getVertice2());
-				j++;
+				if(origem.getGrau() < origem.getGrauMax() && destino.getGrau() < destino.getGrauMax()){
+					arvoreResultado.add(proxAresta);
+					origem.union(destino);
+					origem.aumentaGrau();
+					destino.aumentaGrau();
+					j++;
+				}
 			}
 			i++;
 		}
