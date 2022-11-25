@@ -3,7 +3,7 @@ public class ConjuntoDisjunto<E> {
     int ordem;
     ConjuntoDisjunto<?> representante;
 
-    ConjuntoDisjunto<E> MakeSet(E valor) {
+    ConjuntoDisjunto<E> makeSet(E valor) {
         this.valor = valor;
         representante = this;
         return this;
