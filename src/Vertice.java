@@ -5,14 +5,16 @@ public class Vertice extends ConjuntoDisjunto<Vertice> {
 	private int id;
 	private List<Aresta> ligacoes;
 	private int grau;
+	public int grauMax;
 
-	Vertice(int id) {
+	Vertice(int id, int grauMax) {
 		this.id = id;
 		this.ligacoes = new ArrayList<>();
 		this.grau = 0;
+		this.grauMax = grauMax;
 
 		// Atributos de ConjuntoDisjunto
-		this.MakeSet(this);
+		this.makeSet(this);
 		/*
 		 * this.ordem = 0;
 		 * this.representante = this;
@@ -23,7 +25,7 @@ public class Vertice extends ConjuntoDisjunto<Vertice> {
 	public void adicionarLigacao(Vertice destino, int custo) {
 		Aresta novaAresta = new Aresta(this, destino, custo);
 		this.ordem++;
-		destino.aumentaGrau();
+		//destino.aumentaGrau();
 		ligacoes.add(novaAresta);
 	}
 
@@ -41,6 +43,10 @@ public class Vertice extends ConjuntoDisjunto<Vertice> {
 
 	public void aumentaGrau() {
 		this.grau++;
+	}
+	
+	public int getGrauMax(){
+		return grauMax;
 	}
 
 	@Override
