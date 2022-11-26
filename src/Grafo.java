@@ -45,7 +45,9 @@ public class Grafo {
 	 * de arestas do grafo
 	 * 
 	 * @param vertice1 Vertice que quer fazer a conexão
+	 * 
 	 * @param vertice2 Vertice que vai receber a conexão
+	 * 
 	 * @param custo Custo da conexão
 	 */
 	public void addAresta(Vertice vertice1, Vertice vertice2, int custo) {
@@ -70,38 +72,47 @@ public class Grafo {
 		 */
 
 		List<Aresta> arvoreResultado = new ArrayList<>();
-		
+
 		Collections.sort(arestas);
-		
+
 		int i = 0;
 		int j = 0;
-		//int grauMax = 2;
-		
-		while(j < vertices.size() - 1){
-			//j vai contar os vertices gerados na arvore minima
+		// int grauMax = 2;
+
+		while (j < (vertices.size() - 1)) {
+			// j vai contar os vertices gerados na arvore minima
 			Aresta proxAresta;
 			proxAresta = arestas.get(i);
-			
-			ConjuntoDisjunto representanteOrigem = arestas.get(i).getVertice1().find();
-			ConjuntoDisjunto representanteDestino = arestas.get(i).getVertice2().find();
+
+			ConjuntoDisjunto<?> representanteOrigem = arestas.get(i).getVertice1().find();
+			ConjuntoDisjunto<?> representanteDestino = arestas.get(i).getVertice2().find();
 			Vertice origem = arestas.get(i).getVertice1();
 			Vertice destino = arestas.get(i).getVertice2();
-			
-			if(representanteOrigem != representanteDestino){
-				if(origem.getGrau() < origem.getGrauMax() && destino.getGrau() < destino.getGrauMax()){
-					arvoreResultado.add(proxAresta);
-					origem.union(destino);
-					origem.aumentaGrau();
-					destino.aumentaGrau();
-					j++;
-				}
-			}
-			i++;
+			System.out.println("TESTE: " + j);
+			j++;
+			// if (representanteOrigem != representanteDestino) {
+			// if (origem.getGrau() < origem.getGrauMax() && destino.getGrau() <
+			// destino.getGrauMax()) {
+			// arvoreResultado.add(proxAresta);
+			// origem.union(destino);
+			// origem.aumentaGrau();
+			// destino.aumentaGrau();
+			// j++;
+			// }
+			// }
+			// i++;
 		}
-		
-		//ver resultado
-		for(Aresta a:arvoreResultado){
+
+		// ver resultado
+		int custoTotal = 0;
+		for (Aresta a : arvoreResultado) {
 			System.out.println(a.getVertice1() + " -> " + a.getVertice2() + " custo: " + a.getCusto());
+			custoTotal += a.getCusto();
+		}
+		System.out.println("CUSTO TOTAL : " + custoTotal);
+
+		for (var x : arestas) {
+			System.out.println(x.getCusto());
 		}
 	}
 

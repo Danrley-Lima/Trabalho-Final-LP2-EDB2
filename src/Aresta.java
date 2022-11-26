@@ -24,4 +24,9 @@ public class Aresta implements Comparable<Aresta> {
 	public Vertice getVertice2() {
 		return vertice2;
 	}
+
+	@Override
+	public String toString() {
+		return Integer.toString(custo);
+	}
 }

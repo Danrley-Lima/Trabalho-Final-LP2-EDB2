@@ -13,7 +13,7 @@ public class ConjuntoDisjunto<E> {
         ConjuntoDisjunto<?> representante = this.find();
         ConjuntoDisjunto<?> outroRepresentante = outro.find();// outroRepresetante
 
-        //System.out.println(representante);
+        // System.out.println(representante);
         if (outroRepresentante.ordem < representante.ordem) {// se a ordem do outro representante for menor que o
                                                              // representante da casa atual
             outroRepresentante.representante = representante;// "representante? o representante do outro conjunto passa
