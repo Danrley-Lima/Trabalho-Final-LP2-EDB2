@@ -36,7 +36,7 @@ public class Main {
 		Aresta[] sample = new Aresta[arestas.size()];
 		arestas.toArray(sample);
 
-		Permutacao1.permuta(sample, grafo, vertices);
+		Permutacao1.permuta(sample, grafo);
 		System.out.println("\nTamanho do vetor de árvores: " + grafo.getArvores().size());
 
 		for (int i = 0; i < grafo.getArvores().size(); i++) {
