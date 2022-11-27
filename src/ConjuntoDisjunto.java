@@ -48,7 +48,11 @@ public class ConjuntoDisjunto<E> {
             return false;
         }
     }
-
+    
+    public void resetaRepresentante(){
+    	this.representante = this;
+    }
+    
     @Override
     public String toString() {
         return "" + valor;
