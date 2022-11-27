@@ -25,7 +25,7 @@ public class Vertice extends ConjuntoDisjunto<Vertice> {
 	public void adicionarLigacao(Vertice destino, int custo) {
 		Aresta novaAresta = new Aresta(this, destino, custo);
 		this.ordem++;
-		//destino.aumentaGrau();
+		// destino.aumentaGrau();
 		ligacoes.add(novaAresta);
 	}
 
@@ -44,8 +44,8 @@ public class Vertice extends ConjuntoDisjunto<Vertice> {
 	public void aumentaGrau() {
 		this.grau++;
 	}
-	
-	public int getGrauMax(){
+
+	public int getGrauMax() {
 		return grauMax;
 	}
 

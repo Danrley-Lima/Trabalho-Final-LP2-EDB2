@@ -24,18 +24,33 @@ public class Main {
 		grafo.imprimeLigacoes();
 
 		System.out.println("\nMOSTRANDO CONEXÕES E CUSTO");
-		grafo.gerarArvore();
 
 		// char[] teste = { 'A', 'B', 'C', 'D', 'E' };
 		// Permutacao.permuta(teste);
-		System.out.println("\n Arestas totais: " + arestas.size());
+		// System.out.println("\n Arestas totais: " + arestas.size());
+		// Aresta[] sample = new Aresta[arestas.size()];
+		// arestas.toArray(sample);
+		// Aresta[] sample1 = { sample[0], sample[1], sample[2], sample[3] };
+		// System.out.println("TESTE SAMPLE: " + sample.length);
+		// Permutacao.permuta(arestas);
+
+		// teste
 		Aresta[] sample = new Aresta[arestas.size()];
 		arestas.toArray(sample);
-		Aresta[] sample1 = { sample[0], sample[1], sample[2], sample[3] };
-		System.out.println("TESTE SAMPLE: " + sample.length);
-		// Permutacao.permuta(arestas);
-		Permutacao1.permuta(sample1);
-		// grafo.gerarArvore();
+		
+		Permutacao1.permuta(sample, grafo);
+		System.out.println("\nTamanho do vetor de árvores: " + grafo.getArvores().size());
+
+		for (int i = 0; i < grafo.getArvores().size(); i++) {
+			System.out.println(" i : " + grafo.getArvores().get(i));
+		}
+
+		// for (var aresta : grafo.getArvores()) {
+		// System.out.println("Árvore individual: ");
+		// for (Aresta aresta2 : aresta) {
+		// System.out.println(aresta2.getCusto() + " <<<");
+		// }
+		// }
 
 	}
 }

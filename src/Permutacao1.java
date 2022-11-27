@@ -16,10 +16,10 @@ public class Permutacao1 {
      * 
      * @param vet
      */
-    public static void permuta(Aresta[] vet) {
+    public static void permuta(Aresta[] vet, Grafo grafo) {
 
         p = new Aresta[vet.length];
-        permuta(vet, 0);
+        permuta(vet, 0, grafo);
     }
 
     /**
@@ -28,11 +28,12 @@ public class Permutacao1 {
      * @param vet
      * @param n
      */
-    private static void permuta(Aresta[] vet, int n) {
+    private static void permuta(Aresta[] vet, int n, Grafo grafo) {
 
         if (n == vet.length) {
             cont++;
             imprime();
+            grafo.gerarArvore();
 
         } else {
 
@@ -50,9 +51,9 @@ public class Permutacao1 {
 
                     p[n] = vet[i];
                     // if (p.length == 2) {
-                    //     return;
+                    // return;
                     // }
-                    permuta(vet, n + 1);
+                    permuta(vet, n + 1, grafo);
                 }
 
             } // --for

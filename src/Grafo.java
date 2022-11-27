@@ -10,10 +10,16 @@ import java.util.List;
 public class Grafo {
 	private List<Vertice> vertices;
 	private List<Aresta> arestas;
+	private List<List<Aresta>> arvores;
+
+	public List<List<Aresta>> getArvores() {
+		return arvores;
+	}
 
 	Grafo() {
 		this.vertices = new ArrayList<>();
 		this.arestas = new ArrayList<>();
+		this.arvores = new ArrayList<>();
 	}
 
 	/*
@@ -63,21 +69,11 @@ public class Grafo {
 	/*
 	 * Método para gerar a árvore de menor custo
 	 */
-	public /* Arvore */void gerarArvore() {
-		// ordena o array de arestas
-		/*
-		 * vai ordenar o array original ou criar um array novo ordenado?
-		 * vamo ordenar o array original, se ñ fizer sentido, a gente
-		 * cria um novo array e ordena ele
-		 */
-
-		List<Aresta> arvoreResultado = new ArrayList<>();
-
-		Collections.sort(arestas);
+	public void gerarArvore() {
+		List<Aresta> arvoreMontada = new ArrayList<>();
 
 		int i = 0;
 		int j = 0;
-		// int grauMax = 2;
 
 		while (j < (vertices.size() - 1)) {
 			// j vai contar os vertices gerados na arvore minima
@@ -88,32 +84,29 @@ public class Grafo {
 			ConjuntoDisjunto<?> representanteDestino = arestas.get(i).getVertice2().find();
 			Vertice origem = arestas.get(i).getVertice1();
 			Vertice destino = arestas.get(i).getVertice2();
-			System.out.println("TESTE: " + j);
-			j++;
-			// if (representanteOrigem != representanteDestino) {
-			// if (origem.getGrau() < origem.getGrauMax() && destino.getGrau() <
-			// destino.getGrauMax()) {
-			// arvoreResultado.add(proxAresta);
-			// origem.union(destino);
-			// origem.aumentaGrau();
-			// destino.aumentaGrau();
-			// j++;
-			// }
-			// }
-			// i++;
+
+			if (representanteOrigem != representanteDestino) {
+				if (origem.getGrau() < origem.getGrauMax() && destino.getGrau() < destino.getGrauMax()) {
+					arvoreMontada.add(proxAresta);
+					origem.union(destino);
+					origem.aumentaGrau();
+					destino.aumentaGrau();
+					j++;
+				}
+			}
+			i++;
 		}
 
-		// ver resultado
 		int custoTotal = 0;
-		for (Aresta a : arvoreResultado) {
-			System.out.println(a.getVertice1() + " -> " + a.getVertice2() + " custo: " + a.getCusto());
+		for (Aresta a : arvoreMontada) {
 			custoTotal += a.getCusto();
 		}
-		System.out.println("CUSTO TOTAL : " + custoTotal);
+		System.out.println("Qnt Arestas : " + arvoreMontada.size() + " CUSTO TOTAL : " + custoTotal);
+		// for (var x : arestas) {
+		// System.out.println(x.getCusto());
+		// }
 
-		for (var x : arestas) {
-			System.out.println(x.getCusto());
-		}
+		arvores.add(arvoreMontada);
 	}
 
 	public List<Vertice> getVertices() {
