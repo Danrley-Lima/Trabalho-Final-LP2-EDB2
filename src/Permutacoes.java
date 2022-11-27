@@ -1,17 +1,6 @@
-import java.util.ArrayList;
-import java.util.List;
 
-/**
- * Esta classe gera e imprime as diferentes permutações de n objetos
- *
- */
-
-public class Permutacao1{
-    // numero da permutacao atual
-    private static int cont = 0;
-
-    // armazena a permutacao corrente
-    private static Aresta[] p;
+public class Permutacoes {
+    private static Aresta[] p; // Armazena a permutação atual
 
     /**
      * metodo principal: recebe o vetor cujos elementos que serao permutados
@@ -31,8 +20,6 @@ public class Permutacao1{
      */
     private static void permuta(Aresta[] vet, int n, Grafo grafo) {
         if (n == vet.length) {
-            cont++;
-            //imprime();
             grafo.gerarArvore(p);
         } else {
             for (int i = 0; i < vet.length; i++) {
@@ -49,13 +36,5 @@ public class Permutacao1{
                 }
             }
         }
-    }
-
-    /** imprime a permutacao corrente */
-    private static void imprime() {
-        System.out.println();
-        System.out.print("(" + cont + ") : ");
-        for (int i = 0; i < p.length; i++)
-            System.out.print(p[i] + " ");
     }
 }

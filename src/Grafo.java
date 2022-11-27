@@ -1,8 +1,5 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-
-import javax.swing.text.DefaultEditorKit.CopyAction;
 
 /*
  * vamos abstrair a lista de vertices e arestas
@@ -12,9 +9,9 @@ import javax.swing.text.DefaultEditorKit.CopyAction;
 public class Grafo {
 	private List<Vertice> vertices;
 	private List<Aresta> arestas;
-	private List<List<Aresta>> arvores;
+	private List<Arvore> arvores;
 
-	public List<List<Aresta>> getArvores() {
+	public List<Arvore> getArvores() {
 		return arvores;
 	}
 
@@ -78,10 +75,8 @@ public class Grafo {
 		int i = 0;
 		int j = 0;
 
-		
 		while (j < (vertices.size() - 1)) {
 			// j vai contar os vertices gerados na arvore minima
-			System.out.println("\ni : " + i);
 			Aresta proxAresta = copia[i];
 
 			ConjuntoDisjunto<?> representanteOrigem = copia[i].getVertice1().find();
@@ -90,13 +85,14 @@ public class Grafo {
 			Vertice destino = copia[i].getVertice2();
 
 			if (representanteOrigem != representanteDestino) {
-				//if(origem.getGrau() < origem.getGrauMax() && destino.getGrau() < destino.getGrauMax()) {
-					arvoreMontada.add(proxAresta);
-					origem.union(destino);
-					origem.aumentaGrau();
-					destino.aumentaGrau();
-					j++;
-				//}
+				// if(origem.getGrau() < origem.getGrauMax() && destino.getGrau() <
+				// destino.getGrauMax()) {
+				arvoreMontada.add(proxAresta);
+				origem.union(destino);
+				origem.aumentaGrau();
+				destino.aumentaGrau();
+				j++;
+				// }
 			}
 			i++;
 		}
@@ -105,14 +101,16 @@ public class Grafo {
 		for (Aresta a : arvoreMontada) {
 			custoTotal += a.getCusto();
 		}
-		System.out.println("Qnt Arestas : " + arvoreMontada.size() + " CUSTO TOTAL :" + custoTotal);
+		// System.out.println("Qnt Arestas : " + arvoreMontada.size() + " CUSTO TOTAL :"
+		// + custoTotal);
 
-		arvores.add(arvoreMontada);
+		Arvore arvoreMont = new Arvore(arvoreMontada, custoTotal);
+		arvores.add(arvoreMont);
 
-		 for (Vertice vertice : vertices) {
-			 vertice.resetaRepresentante();
-			 vertice.resetaGrau();
-		 }
+		for (Vertice vertice : vertices) {
+			vertice.resetaRepresentante();
+			vertice.resetaGrau();
+		}
 	}
 
 	public List<Vertice> getVertices() {
