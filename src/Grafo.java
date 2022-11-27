@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.swing.text.DefaultEditorKit.CopyAction;
+
 /*
  * vamos abstrair a lista de vertices e arestas
  * para uma classe abstrata Dados, similar ao que
@@ -69,21 +71,22 @@ public class Grafo {
 	/*
 	 * Método para gerar a árvore de menor custo
 	 */
-	public void gerarArvore() {
+	public void gerarArvore(Aresta[] vet, List<Vertice> vertices) {
 		List<Aresta> arvoreMontada = new ArrayList<>();
+		Aresta[] copia = vet.clone();
 
 		int i = 0;
 		int j = 0;
 
 		while (j < (vertices.size() - 1)) {
 			// j vai contar os vertices gerados na arvore minima
-			Aresta proxAresta;
-			proxAresta = arestas.get(i);
+			System.out.println("\ni : " + i);
+			Aresta proxAresta = copia[i];
 
-			ConjuntoDisjunto<?> representanteOrigem = arestas.get(i).getVertice1().find();
-			ConjuntoDisjunto<?> representanteDestino = arestas.get(i).getVertice2().find();
-			Vertice origem = arestas.get(i).getVertice1();
-			Vertice destino = arestas.get(i).getVertice2();
+			ConjuntoDisjunto<?> representanteOrigem = copia[i].getVertice1().find();
+			ConjuntoDisjunto<?> representanteDestino = copia[i].getVertice2().find();
+			Vertice origem = copia[i].getVertice1();
+			Vertice destino = copia[i].getVertice2();
 
 			if (representanteOrigem != representanteDestino) {
 				if (origem.getGrau() < origem.getGrauMax() && destino.getGrau() < destino.getGrauMax()) {
@@ -101,12 +104,14 @@ public class Grafo {
 		for (Aresta a : arvoreMontada) {
 			custoTotal += a.getCusto();
 		}
-		System.out.println("Qnt Arestas : " + arvoreMontada.size() + " CUSTO TOTAL : " + custoTotal);
-		// for (var x : arestas) {
-		// System.out.println(x.getCusto());
-		// }
+		System.out.println("Qnt Arestas : " + arvoreMontada.size() + " CUSTO TOTAL :" + custoTotal);
 
 		arvores.add(arvoreMontada);
+
+		// for (var vertice : vertices) {
+		// vertice.getLigacoes().clear();
+		// vertice.representante = vertice.valor;
+		// }
 	}
 
 	public List<Vertice> getVertices() {

@@ -25,8 +25,6 @@ public class Main {
 
 		System.out.println("\nMOSTRANDO CONEXÕES E CUSTO");
 
-		// char[] teste = { 'A', 'B', 'C', 'D', 'E' };
-		// Permutacao.permuta(teste);
 		// System.out.println("\n Arestas totais: " + arestas.size());
 		// Aresta[] sample = new Aresta[arestas.size()];
 		// arestas.toArray(sample);
@@ -37,8 +35,8 @@ public class Main {
 		// teste
 		Aresta[] sample = new Aresta[arestas.size()];
 		arestas.toArray(sample);
-		
-		Permutacao1.permuta(sample, grafo);
+
+		Permutacao1.permuta(sample, grafo, vertices);
 		System.out.println("\nTamanho do vetor de árvores: " + grafo.getArvores().size());
 
 		for (int i = 0; i < grafo.getArvores().size(); i++) {
