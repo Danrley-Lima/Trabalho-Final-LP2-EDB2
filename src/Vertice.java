@@ -48,6 +48,10 @@ public class Vertice extends ConjuntoDisjunto<Vertice> {
 	public int getGrauMax() {
 		return grauMax;
 	}
+	
+	public void resetaGrau(){
+		this.grau = 0;
+	}
 
 	@Override
 	public String toString() {
