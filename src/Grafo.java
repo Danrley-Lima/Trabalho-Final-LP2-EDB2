@@ -71,13 +71,14 @@ public class Grafo {
 	/*
 	 * Método para gerar a árvore de menor custo
 	 */
-	public void gerarArvore(Aresta[] vet, List<Vertice> vertices) {
+	public void gerarArvore(Aresta[] vet) {
 		List<Aresta> arvoreMontada = new ArrayList<>();
 		Aresta[] copia = vet.clone();
 
 		int i = 0;
 		int j = 0;
 
+		
 		while (j < (vertices.size() - 1)) {
 			// j vai contar os vertices gerados na arvore minima
 			System.out.println("\ni : " + i);
@@ -89,13 +90,13 @@ public class Grafo {
 			Vertice destino = copia[i].getVertice2();
 
 			if (representanteOrigem != representanteDestino) {
-				if (origem.getGrau() < origem.getGrauMax() && destino.getGrau() < destino.getGrauMax()) {
+				//if(origem.getGrau() < origem.getGrauMax() && destino.getGrau() < destino.getGrauMax()) {
 					arvoreMontada.add(proxAresta);
 					origem.union(destino);
 					origem.aumentaGrau();
 					destino.aumentaGrau();
 					j++;
-				}
+				//}
 			}
 			i++;
 		}
@@ -108,10 +109,10 @@ public class Grafo {
 
 		arvores.add(arvoreMontada);
 
-		// for (var vertice : vertices) {
-		// vertice.getLigacoes().clear();
-		// vertice.representante = vertice.valor;
-		// }
+		 for (Vertice vertice : vertices) {
+			 vertice.resetaRepresentante();
+			 vertice.resetaGrau();
+		 }
 	}
 
 	public List<Vertice> getVertices() {
