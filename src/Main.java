@@ -32,8 +32,19 @@ public class Main {
 		//grafo.geraArvoresComRestricao();
 		System.out.println("\nQtd arvores com restrição: " + grafo.getArvoresComRestricao().size());
 		//É PRA FAZER N-1 VERTICES
-		Combinacao.makeCombi(arestas, grafo.getVertices().size()-1);
+		Combinacao.makeCombi(arestas, grafo.getVertices().size()-1, grafo);
 		System.out.println(Combinacao.getTam());
+		//Combinacao.imprime();
+		
+		System.out.println(grafo.getArvoresComRestricao().size());
+		List<Arvore> arvores = grafo.getArvoresComRestricao();
+		
+		for(Arvore a : arvores){
+			System.out.println("***** Arvore *****");
+			for(Aresta cu : a.getArvoreArestas()){
+				System.out.println(cu.getVertice1() + " -> " + cu.getVertice2());
+			}
+		}
 		/*for (int i = 0; i < grafo.getArvores().size(); i++) {
 			System.out.println(" i : " + grafo.getArvores().get(i).getCustoTotal());
 		}*/		

@@ -77,8 +77,10 @@ public class Grafo {
 
 		int i = 0;
 		int j = 0;
-
 		while (j < (vertices.size() - 1)) {
+			if(i == vertices.size()-1){
+				break;
+			}
 			// j vai contar os vertices gerados na arvore minima
 			Aresta proxAresta = copia[i];
 
@@ -127,29 +129,19 @@ public class Grafo {
 //		for(Aresta a:arestasAtuais){
 //			System.out.println(a.getVertice1() + "->" + a.getVertice2());
 //		}
+		
+		//TA GERANDO AS 60 ÁRVORES DAS 210 TOTAIS
 		for(int j = 0; j < arestasAtuais.size(); j++){
 			achou = false;
-			if(arestasAtuais.get(j).getVertice1().getGrau() >= 2 && arestasAtuais.get(j).getVertice2().getGrau() >= 2){
+			int grauMax = arestasAtuais.get(j).getVertice1().getGrauMax();
+			if(arestasAtuais.get(j).getVertice1().getGrau() > grauMax || arestasAtuais.get(j).getVertice2().getGrau() > grauMax){
 				achou = true;
 				break;
 			}
-		}
-		
-		//tentar comparar tbm as arestas, além do custo
-		for(int i = 0; i < arvoresComRestricao.size(); i++){
-			int cont = 0;
-			if(arvoresComRestricao.get(i).getCustoTotal() == arvoreMont.getCustoTotal()){
-				List<Aresta> teste = arvoresComRestricao.get(i).getArvoreArestas();
-				for(int j = 0; j < teste.size(); j++){
-					if(teste.get(j).getVertice1() == arestasAtuais.get(j).getVertice1()
-					&& teste.get(j).getVertice2() == arestasAtuais.get(j).getVertice2()){
-						cont++;
-					}
-				}	
-				if(cont == teste.size()){
-					achou = true;
-					break;
-				}
+			
+			if(arestasAtuais.size() < vertices.size()-1){
+				achou = true;
+				break;
 			}
 		}
 
