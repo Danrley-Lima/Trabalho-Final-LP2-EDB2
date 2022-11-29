@@ -9,17 +9,18 @@ public class Combinacao {
 
         // Pushing this vector to a vector of vector
         if (k == 0) {
-            // ans.add(tmp);
-            System.out.println("aa: " + tmp);
             ans.add(tmp);
-            System.out.println("BBB");
+            //System.out.println("aa: " + tmp);
+            //ans.add(tmp);
+            //System.out.println("BBB");
             return;
         }
 
         // i iterates from left to n. First time
         // left will be 1
-        for (int i = left; i <= arestas.size(); ++i) {
-            tmp.add(arestas.get(i));
+        for (int i = left; i < arestas.size(); ++i){  	
+	    	tmp.add(arestas.get(i));
+        	
             makeCombiUtil(arestas, i + 1, k - 1);
 
             // Popping out last inserted element
@@ -31,7 +32,11 @@ public class Combinacao {
     // Prints all combinations of size k of numbers
     // from 1 to n.
     static void makeCombi(List<Aresta> arestas, int k) {
-        makeCombiUtil(arestas, 1, k);
+        makeCombiUtil(arestas, 0, k);
+    }
+    
+    static int getTam(){
+    	return ans.size();
     }
 }
 

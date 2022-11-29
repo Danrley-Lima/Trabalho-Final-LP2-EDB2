@@ -10,15 +10,21 @@ public class Grafo {
 	private List<Vertice> vertices;
 	private List<Aresta> arestas;
 	private List<Arvore> arvores;
+	private List<Arvore> arvoresComRestricao;
 
 	public List<Arvore> getArvores() {
 		return arvores;
+	}
+	
+	public List<Arvore> getArvoresComRestricao() {
+		return arvoresComRestricao;
 	}
 
 	Grafo() {
 		this.vertices = new ArrayList<>();
 		this.arestas = new ArrayList<>();
 		this.arvores = new ArrayList<>();
+		this.arvoresComRestricao = new ArrayList<>();
 	}
 
 	/*
@@ -35,9 +41,6 @@ public class Grafo {
 	 * de vértices do Grafo
 	 * 
 	 * @param id Identificador do vértice (casa)
-	 * 
-	 * IDEIA: Ao criar um novo vertice, cria um novo conjunto
-	 * disjunto.
 	 */
 	public void addVertice(int id, int grauMax) {
 		Vertice novoVertice = new Vertice(id, grauMax);
@@ -103,13 +106,55 @@ public class Grafo {
 		}
 		// System.out.println("Qnt Arestas : " + arvoreMontada.size() + " CUSTO TOTAL :"
 		// + custoTotal);
-
 		Arvore arvoreMont = new Arvore(arvoreMontada, custoTotal);
+		
+		geraArvoresComRestricao(arvoreMont);
+		
 		arvores.add(arvoreMont);
-
-		for (Vertice vertice : vertices) {
+		
+		
+		for (Vertice vertice : vertices){
 			vertice.resetaRepresentante();
 			vertice.resetaGrau();
+		}
+	}
+	
+	public void geraArvoresComRestricao(Arvore arvoreMont){
+		List<Aresta> arestasAtuais = new ArrayList<>();
+		boolean achou = false;
+		arestasAtuais = arvoreMont.getArvoreArestas();
+//		System.out.println("\n*****  Arvore  *****");
+//		for(Aresta a:arestasAtuais){
+//			System.out.println(a.getVertice1() + "->" + a.getVertice2());
+//		}
+		for(int j = 0; j < arestasAtuais.size(); j++){
+			achou = false;
+			if(arestasAtuais.get(j).getVertice1().getGrau() >= 2 && arestasAtuais.get(j).getVertice2().getGrau() >= 2){
+				achou = true;
+				break;
+			}
+		}
+		
+		//tentar comparar tbm as arestas, além do custo
+		for(int i = 0; i < arvoresComRestricao.size(); i++){
+			int cont = 0;
+			if(arvoresComRestricao.get(i).getCustoTotal() == arvoreMont.getCustoTotal()){
+				List<Aresta> teste = arvoresComRestricao.get(i).getArvoreArestas();
+				for(int j = 0; j < teste.size(); j++){
+					if(teste.get(j).getVertice1() == arestasAtuais.get(j).getVertice1()
+					&& teste.get(j).getVertice2() == arestasAtuais.get(j).getVertice2()){
+						cont++;
+					}
+				}	
+				if(cont == teste.size()){
+					achou = true;
+					break;
+				}
+			}
+		}
+
+		if(!achou){
+			arvoresComRestricao.add(arvoreMont);
 		}
 	}
 

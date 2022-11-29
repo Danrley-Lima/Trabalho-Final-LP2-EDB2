@@ -25,5 +25,4 @@ public class Arvore extends Dados<Aresta> {
     public void setCustoTotal(int custoTotal) {
         this.custoTotal = custoTotal;
     }
-
 }

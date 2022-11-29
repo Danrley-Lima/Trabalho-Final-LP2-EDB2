@@ -21,16 +21,21 @@ public class Main {
 		grafo.imprimeLigacoes();
 
 		Aresta[] vetorArestasRaw = new Aresta[arestas.size()];
+		
 		arestas.toArray(vetorArestasRaw);
-		Permutacoes.permuta(vetorArestasRaw, grafo);
+		
+		//Permutacoes.permuta(vetorArestasRaw, grafo);
+
 		System.out.println("\nTamanho do vetor de árvores: " +
-				grafo.getArvores().size());
-
-		for (int i = 0; i < grafo.getArvores().size(); i++) {
+		grafo.getArvores().size());
+		
+		//grafo.geraArvoresComRestricao();
+		System.out.println("\nQtd arvores com restrição: " + grafo.getArvoresComRestricao().size());
+		//É PRA FAZER N-1 VERTICES
+		Combinacao.makeCombi(arestas, grafo.getVertices().size()-1);
+		System.out.println(Combinacao.getTam());
+		/*for (int i = 0; i < grafo.getArvores().size(); i++) {
 			System.out.println(" i : " + grafo.getArvores().get(i).getCustoTotal());
-		}
-
-		// Combinacao.makeCombi(arestas, arestas.size() - 1);
-
+		}*/		
 	}
 }
