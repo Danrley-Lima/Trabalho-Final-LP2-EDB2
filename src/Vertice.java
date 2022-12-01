@@ -13,19 +13,12 @@ public class Vertice extends ConjuntoDisjunto<Vertice> {
 		this.grau = 0;
 		this.grauMax = grauMax;
 
-		// Atributos de ConjuntoDisjunto
 		this.makeSet(this);
-		/*
-		 * this.ordem = 0;
-		 * this.representante = this;
-		 * this.valor = this;
-		 */
 	}
 
 	public void adicionarLigacao(Vertice destino, int custo) {
 		Aresta novaAresta = new Aresta(this, destino, custo);
 		this.ordem++;
-		// destino.aumentaGrau();
 		ligacoes.add(novaAresta);
 	}
 

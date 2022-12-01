@@ -11,24 +11,19 @@ public class ConjuntoDisjunto<E> {
 
     ConjuntoDisjunto<?> union(ConjuntoDisjunto<?> outro) {
         ConjuntoDisjunto<?> representante = this.find();
-        ConjuntoDisjunto<?> outroRepresentante = outro.find();// outroRepresetante
+        ConjuntoDisjunto<?> outroRepresentante = outro.find();
 
-        // System.out.println(representante);
-        if (outroRepresentante.ordem < representante.ordem) {// se a ordem do outro representante for menor que o
-                                                             // representante da casa atual
-            outroRepresentante.representante = representante;// "representante? o representante do outro conjunto passa
-                                                             // a ser o representante do atual
+        if (outroRepresentante.ordem < representante.ordem) {
+            outroRepresentante.representante = representante;
+            
             return representante;
-        } else if (outroRepresentante.ordem == representante.ordem) {/// se a ordem dos conjuntos forem iguais
-            representante.representante = outroRepresentante;// o representante do outro conjunto se torna o
-                                                             // representante do atual
-            outroRepresentante.ordem++;// Ordem do representante do outro conjunto cresce. (não deveria ser
-                                       // outroRepresentante.ordem += representante.ordem?
+        } else if (outroRepresentante.ordem == representante.ordem) {
+            representante.representante = outroRepresentante;
+            outroRepresentante.ordem++;
+            
             return outroRepresentante;
-        } else {// se a ordem do representante atual for menor que o representante do outro
-                // conjunto
-            representante.representante = outroRepresentante;// representante do outro conjunto se torna representante
-                                                             // do conjunto atual
+        } else {
+            representante.representante = outroRepresentante;
             return outroRepresentante;
         }
     }
@@ -40,15 +35,7 @@ public class ConjuntoDisjunto<E> {
             return this.representante.find();
         }
     }
-
-    static boolean areMerged(ConjuntoDisjunto<?> c1, ConjuntoDisjunto<?> c2) {
-        if (c1.find() == c2.find()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    
+  
     public void resetaRepresentante(){
     	this.representante = this;
     }
