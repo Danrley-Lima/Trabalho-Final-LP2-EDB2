@@ -10,7 +10,7 @@ public class Main {
 		int limitadorArestas = leitor.lerLimitadorAresta();
 
 		// Adiciona ao grafo a quantidade de instâncias de vértices correspondentes.
-		for (int i = 1; i <= quantCasas; i++) {
+		for (int i = 0; i < quantCasas; i++) {
 			grafo.addVertice(i, limitadorArestas);
 		}
 		// List<Vertice> vertices = grafo.getVertices();
@@ -24,13 +24,15 @@ public class Main {
 		
 		arestas.toArray(vetorArestasRaw);
 		
+		System.out.println(grafo.getArestas().size());
+		
 		//Permutacoes.permuta(vetorArestasRaw, grafo);
 
-		System.out.println("\nTamanho do vetor de árvores: " +
-		grafo.getArvores().size());
+//		System.out.println("\nTamanho do vetor de árvores: " +
+//		grafo.getArvores().size());
 		
 		//grafo.geraArvoresComRestricao();
-		System.out.println("\nQtd arvores com restrição: " + grafo.getArvoresComRestricao().size());
+		//System.out.println("\nQtd arvores com restrição: " + grafo.getArvoresComRestricao().size());
 		//É PRA FAZER N-1 VERTICES
 		Combinacao.makeCombi(arestas, grafo.getVertices().size()-1, grafo);
 		System.out.println(Combinacao.getTam());
@@ -38,12 +40,20 @@ public class Main {
 		
 		System.out.println(grafo.getArvoresComRestricao().size());
 		List<Arvore> arvores = grafo.getArvoresComRestricao();
-		
+		/*
 		for(Arvore a : arvores){
 			System.out.println("***** Arvore *****");
 			for(Aresta cu : a.getArvoreArestas()){
 				System.out.println(cu.getVertice1() + " -> " + cu.getVertice2());
 			}
+		}*/
+		
+		List<Aresta> arvoreMinima = grafo.getArvoreMinima().getArvoreArestas();
+		
+		System.out.println("\n***** ÁRVORE MÍNIMA*****");
+		System.out.println("Custo total: " + grafo.getArvoreMinima().getCustoTotal());
+		for(Aresta a: arvoreMinima){
+			System.out.println(a.getVertice1() + " -> " + a.getVertice2());
 		}
 		/*for (int i = 0; i < grafo.getArvores().size(); i++) {
 			System.out.println(" i : " + grafo.getArvores().get(i).getCustoTotal());

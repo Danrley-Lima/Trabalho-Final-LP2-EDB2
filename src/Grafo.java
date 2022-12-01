@@ -11,6 +11,7 @@ public class Grafo {
 	private List<Aresta> arestas;
 	private List<Arvore> arvores;
 	private List<Arvore> arvoresComRestricao;
+	private Arvore arvoreMinima;
 
 	public List<Arvore> getArvores() {
 		return arvores;
@@ -20,11 +21,16 @@ public class Grafo {
 		return arvoresComRestricao;
 	}
 
+	public Arvore getArvoreMinima(){
+		return arvoreMinima;
+	}
+	
 	Grafo() {
 		this.vertices = new ArrayList<>();
 		this.arestas = new ArrayList<>();
 		this.arvores = new ArrayList<>();
 		this.arvoresComRestricao = new ArrayList<>();
+		this.arvoreMinima = null;
 	}
 
 	/*
@@ -146,6 +152,14 @@ public class Grafo {
 		}
 
 		if(!achou){
+			if(arvoreMinima == null){
+				arvoreMinima = arvoreMont;
+			}
+			else{
+				if(arvoreMont.getCustoTotal() < arvoreMinima.getCustoTotal()){
+					arvoreMinima = arvoreMont;
+				}
+			}
 			arvoresComRestricao.add(arvoreMont);
 		}
 	}
