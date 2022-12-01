@@ -22,7 +22,7 @@ public class Combinacao {
         	Aresta[] viji = new Aresta[tmp.size()];
             tmp.toArray(viji);
             viji.clone();
-        	ans.add(viji);
+        	//ans.add(viji);
             
             grafo.gerarArvore(viji);
             //System.out.println("aa: " + tmp);

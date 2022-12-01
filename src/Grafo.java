@@ -118,7 +118,7 @@ public class Grafo {
 		
 		geraArvoresComRestricao(arvoreMont);
 		
-		arvores.add(arvoreMont);
+//		arvores.add(arvoreMont);
 		
 		
 		for (Vertice vertice : vertices){
@@ -160,7 +160,7 @@ public class Grafo {
 					arvoreMinima = arvoreMont;
 				}
 			}
-			arvoresComRestricao.add(arvoreMont);
+			//arvoresComRestricao.add(arvoreMont);
 		}
 	}
 

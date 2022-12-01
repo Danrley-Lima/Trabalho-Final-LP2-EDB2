@@ -13,10 +13,16 @@ public class LeitorArquivo {
      * @param param Argv do programa com o arquivo.
      * @throws FileNotFoundException Erro caso o arquivo seja inválido
      */
-    public LeitorArquivo(String param) throws FileNotFoundException {
-        this.arquivo = new File(param);
-        scan = new Scanner(arquivo);
-    }
+    public LeitorArquivo(String param){
+    	try{
+	        this.arquivo = new File(param);
+	        scan = new Scanner(arquivo);
+    	}catch(Exception e){
+    		System.out.println("Não foi possível ler o arquivo! Verifique se o caminho está correto");
+    		System.out.println("Saindo...");
+    		System.exit(0);
+    	}
+	}
 
     public int lerQuantCasas() {
         return scan.nextInt();

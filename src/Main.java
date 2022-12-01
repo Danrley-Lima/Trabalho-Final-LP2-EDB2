@@ -35,28 +35,17 @@ public class Main {
 		//System.out.println("\nQtd arvores com restrição: " + grafo.getArvoresComRestricao().size());
 		//É PRA FAZER N-1 VERTICES
 		Combinacao.makeCombi(arestas, grafo.getVertices().size()-1, grafo);
-		System.out.println(Combinacao.getTam());
+		//System.out.println("Árvores possíveis: " + Combinacao.getTam());
 		//Combinacao.imprime();
 		
-		System.out.println(grafo.getArvoresComRestricao().size());
+		System.out.println("Arvores com restrição: " + grafo.getArvoresComRestricao().size());
 		List<Arvore> arvores = grafo.getArvoresComRestricao();
-		/*
-		for(Arvore a : arvores){
-			System.out.println("***** Arvore *****");
-			for(Aresta cu : a.getArvoreArestas()){
-				System.out.println(cu.getVertice1() + " -> " + cu.getVertice2());
-			}
-		}*/
-		
 		List<Aresta> arvoreMinima = grafo.getArvoreMinima().getArvoreArestas();
 		
 		System.out.println("\n***** ÁRVORE MÍNIMA*****");
 		System.out.println("Custo total: " + grafo.getArvoreMinima().getCustoTotal());
 		for(Aresta a: arvoreMinima){
-			System.out.println(a.getVertice1() + " -> " + a.getVertice2());
+			System.out.println(a.getVertice1() + " -> " + a.getVertice2() + " Custo: " + a.getCusto());
 		}
-		/*for (int i = 0; i < grafo.getArvores().size(); i++) {
-			System.out.println(" i : " + grafo.getArvores().get(i).getCustoTotal());
-		}*/		
 	}
 }
