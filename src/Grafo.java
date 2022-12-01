@@ -20,7 +20,6 @@ public class Grafo {
 	 */
 	public void addVertice(int id, int grauMax) {
 		Vertice novoVertice = new Vertice(id, grauMax);
-
 		vertices.add(novoVertice);
 	}
 
@@ -34,7 +33,10 @@ public class Grafo {
 	 * 
 	 * @param custo Custo da conexão
 	 */
-	public void addAresta(Vertice vertice1, Vertice vertice2, int custo) {
+	public void addAresta(Vertice vertice1, Vertice vertice2, int custo) throws ErroCustoAresta{
+		if(custo == 0){
+			throw new ErroCustoAresta();
+		}
 		Aresta novaAresta = new Aresta(vertice1, vertice2, custo);
 		arestas.add(novaAresta);
 

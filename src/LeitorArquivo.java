@@ -43,11 +43,17 @@ public class LeitorArquivo {
     public void construirArestas(Grafo grafo, int numVertices) {
         List<Vertice> vertices = grafo.getVertices();
         int custo;
-        for (int i = 0; i < numVertices - 1; i++) {
-            for (int j = i + 1; j < numVertices; j++) {
-                custo = scan.nextInt();
-                grafo.addAresta(vertices.get(i), vertices.get(j), custo);
-            }
+        try{
+	        for (int i = 0; i < numVertices - 1; i++) {
+	            for (int j = i + 1; j < numVertices; j++) {
+	                custo = scan.nextInt();
+	                grafo.addAresta(vertices.get(i), vertices.get(j), custo);
+	            }
+	        }
+        }catch(ErroCustoAresta e){
+    		System.out.println(e.getMessage());
+        	
+        	System.exit(0);
         }
     }
 }
