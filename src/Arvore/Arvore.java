@@ -1,5 +1,9 @@
+package Arvore;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import Assets.Dados;
 
 public class Arvore extends Dados<Aresta> {
     private List<Aresta> arvoreArestas;

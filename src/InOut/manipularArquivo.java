@@ -1,9 +1,16 @@
+package InOut;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.Scanner;
+
+import Arvore.Aresta;
+import Arvore.Arvore;
+import Grafo.Grafo;
+import Grafo.Vertice;
 
 public class manipularArquivo {
     private File arquivo; // File que contém o arquivo de entrada do programa.

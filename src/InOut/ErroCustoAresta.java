@@ -1,3 +1,4 @@
+package InOut;
 
 public class ErroCustoAresta extends Exception {
 	public ErroCustoAresta() {

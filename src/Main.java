@@ -1,6 +1,11 @@
 import java.io.FileNotFoundException;
 import java.util.List;
 
+import Arvore.Aresta;
+import Assets.Combinacao;
+import Grafo.Grafo;
+import InOut.manipularArquivo;
+
 public class Main {
 	public static void main(String[] args) throws FileNotFoundException {
 		Grafo grafo = new Grafo();
