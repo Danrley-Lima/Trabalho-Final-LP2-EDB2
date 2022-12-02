@@ -13,16 +13,16 @@ public class LeitorArquivo {
      * @param param Argv do programa com o arquivo.
      * @throws FileNotFoundException Erro caso o arquivo seja inválido
      */
-    public LeitorArquivo(String param){
-    	try{
-	        this.arquivo = new File(param);
-	        scan = new Scanner(arquivo);
-    	}catch(Exception e){
-    		System.out.println("Não foi possível ler o arquivo! Verifique se o caminho está correto");
-    		System.out.println("Saindo...");
-    		System.exit(0);
-    	}
-	}
+    public LeitorArquivo(String param) {
+        try {
+            this.arquivo = new File(param);
+            scan = new Scanner(arquivo);
+        } catch (Exception e) {
+            System.out.println("Não foi possível ler o arquivo! Verifique se o caminho está correto");
+            System.out.println("Saindo...");
+            System.exit(0);
+        }
+    }
 
     public int lerQuantCasas() {
         return scan.nextInt();
@@ -43,17 +43,17 @@ public class LeitorArquivo {
     public void construirArestas(Grafo grafo, int numVertices) {
         List<Vertice> vertices = grafo.getVertices();
         int custo;
-        try{
-	        for (int i = 0; i < numVertices - 1; i++) {
-	            for (int j = i + 1; j < numVertices; j++) {
-	                custo = scan.nextInt();
-	                grafo.addAresta(vertices.get(i), vertices.get(j), custo);
-	            }
-	        }
-        }catch(ErroCustoAresta e){
-    		System.out.println(e.getMessage());
-        	
-        	System.exit(0);
+        try {
+            for (int i = 0; i < numVertices - 1; i++) {
+                for (int j = i + 1; j < numVertices; j++) {
+                    custo = scan.nextInt();
+                    grafo.addAresta(vertices.get(i), vertices.get(j), custo);
+                }
+            }
+        } catch (ErroCustoAresta e) {
+            System.out.println(e.getMessage());
+
+            System.exit(0);
         }
     }
 }

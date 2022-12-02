@@ -11,7 +11,7 @@ public abstract class Dados<E> {
      */
     // ARRUMAR AINDA
     // public void adicionar(List<E> dado) {
-    //     dados.add(dado);
+    // dados.add(dado);
     // };
 
     /**

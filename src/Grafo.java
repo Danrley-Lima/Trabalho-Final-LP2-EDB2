@@ -33,8 +33,8 @@ public class Grafo {
 	 * 
 	 * @param custo Custo da conexão
 	 */
-	public void addAresta(Vertice vertice1, Vertice vertice2, int custo) throws ErroCustoAresta{
-		if(custo == 0){
+	public void addAresta(Vertice vertice1, Vertice vertice2, int custo) throws ErroCustoAresta {
+		if (custo == 0) {
 			throw new ErroCustoAresta();
 		}
 		Aresta novaAresta = new Aresta(vertice1, vertice2, custo);
@@ -52,7 +52,7 @@ public class Grafo {
 		int i = 0;
 		int j = 0;
 		while (j < (vertices.size() - 1)) {
-			if(i == vertices.size()-1){
+			if (i == vertices.size() - 1) {
 				break;
 			}
 			// j vai contar os vertices gerados na arvore minima
@@ -78,47 +78,47 @@ public class Grafo {
 			custoTotal += a.getCusto();
 		}
 		Arvore arvoreMont = new Arvore(arvoreMontada, custoTotal);
-		
+
 		geraArvoresComRestricao(arvoreMont);
-		
-		for (Vertice vertice : vertices){
+
+		for (Vertice vertice : vertices) {
 			vertice.resetaRepresentante();
 			vertice.resetaGrau();
 		}
 	}
-	
-	public void geraArvoresComRestricao(Arvore arvoreMont){
+
+	public void geraArvoresComRestricao(Arvore arvoreMont) {
 		List<Aresta> arestasAtuais = new ArrayList<>();
 		boolean achou = false;
 		arestasAtuais = arvoreMont.getArvoreArestas();
-		
-		for(int j = 0; j < arestasAtuais.size(); j++){
+
+		for (int j = 0; j < arestasAtuais.size(); j++) {
 			achou = false;
 			int grauMax = arestasAtuais.get(j).getVertice1().getGrauMax();
-			if(arestasAtuais.get(j).getVertice1().getGrau() > grauMax || arestasAtuais.get(j).getVertice2().getGrau() > grauMax){
+			if (arestasAtuais.get(j).getVertice1().getGrau() > grauMax
+					|| arestasAtuais.get(j).getVertice2().getGrau() > grauMax) {
 				achou = true;
 				break;
 			}
-			
-			if(arestasAtuais.size() < vertices.size()-1){
+
+			if (arestasAtuais.size() < vertices.size() - 1) {
 				achou = true;
 				break;
 			}
 		}
 
-		if(!achou){
-			if(arvoreMinima == null){
+		if (!achou) {
+			if (arvoreMinima == null) {
 				arvoreMinima = arvoreMont;
-			}
-			else{
-				if(arvoreMont.getCustoTotal() < arvoreMinima.getCustoTotal()){
+			} else {
+				if (arvoreMont.getCustoTotal() < arvoreMinima.getCustoTotal()) {
 					arvoreMinima = arvoreMont;
 				}
 			}
 		}
 	}
-	
-	public Arvore getArvoreMinima(){
+
+	public Arvore getArvoreMinima() {
 		return arvoreMinima;
 	}
 

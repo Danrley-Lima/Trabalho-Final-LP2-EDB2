@@ -15,12 +15,12 @@ public class ConjuntoDisjunto<E> {
 
         if (outroRepresentante.ordem < representante.ordem) {
             outroRepresentante.representante = representante;
-            
+
             return representante;
         } else if (outroRepresentante.ordem == representante.ordem) {
             representante.representante = outroRepresentante;
             outroRepresentante.ordem++;
-            
+
             return outroRepresentante;
         } else {
             representante.representante = outroRepresentante;
@@ -35,11 +35,11 @@ public class ConjuntoDisjunto<E> {
             return this.representante.find();
         }
     }
-  
-    public void resetaRepresentante(){
-    	this.representante = this;
+
+    public void resetaRepresentante() {
+        this.representante = this;
     }
-    
+
     @Override
     public String toString() {
         return "" + valor;
