@@ -3,7 +3,7 @@ package Assets;
 import java.util.ArrayList;
 import java.util.List;
 
-import Arvore.Aresta;
+import Grafo.Aresta;
 import Grafo.Grafo;
 
 public class Combinacao {

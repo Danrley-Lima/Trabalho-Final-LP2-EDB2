@@ -3,7 +3,6 @@ package Grafo;
 import java.util.ArrayList;
 import java.util.List;
 
-import Arvore.Aresta;
 import Arvore.Arvore;
 import ConjuntoDisjunto.ConjuntoDisjunto;
 import InOut.ErroCustoAresta;

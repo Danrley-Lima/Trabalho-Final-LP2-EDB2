@@ -1,6 +1,4 @@
-package Arvore;
-
-import Grafo.Vertice;
+package Grafo;
 
 public class Aresta implements Comparable<Aresta> {
 	private int custo;

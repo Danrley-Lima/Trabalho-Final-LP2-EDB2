@@ -3,7 +3,6 @@ package Grafo;
 import java.util.ArrayList;
 import java.util.List;
 
-import Arvore.Aresta;
 import ConjuntoDisjunto.ConjuntoDisjunto;
 
 public class Vertice extends ConjuntoDisjunto<Vertice> {

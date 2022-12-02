@@ -1,8 +1,8 @@
 import java.io.FileNotFoundException;
 import java.util.List;
 
-import Arvore.Aresta;
 import Assets.Combinacao;
+import Grafo.Aresta;
 import Grafo.Grafo;
 import InOut.manipularArquivo;
 

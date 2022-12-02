@@ -7,8 +7,8 @@ import java.io.PrintWriter;
 import java.util.List;
 import java.util.Scanner;
 
-import Arvore.Aresta;
 import Arvore.Arvore;
+import Grafo.Aresta;
 import Grafo.Grafo;
 import Grafo.Vertice;
 
