@@ -69,7 +69,7 @@ public class manipularArquivo {
 
     public void escreverArvore(Arvore arvore, int quantCasas, int limitadorAresta) {
         try {
-            this.arquivoSaida = new FileWriter("../data/arvoreSaida.txt");
+            this.arquivoSaida = new FileWriter("./data/arvoreSaida.txt");
             PrintWriter gravar = new PrintWriter(arquivoSaida);
             gravar.print("Quantidade de Vértices: " + quantCasas + " / " + "Quantidade de arestas: " + limitadorAresta);
             for (Aresta aresta : arvore.getArvoreArestas()) {
