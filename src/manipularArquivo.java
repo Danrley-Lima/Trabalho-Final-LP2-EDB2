@@ -1,10 +1,13 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Scanner;
 
-public class LeitorArquivo {
+public class manipularArquivo {
     private File arquivo; // File que contém o arquivo de entrada do programa.
+    private FileWriter arquivoSaida; // File que contém o arquivo da árvore de saída.
     private Scanner scan;
 
     /**
@@ -13,7 +16,7 @@ public class LeitorArquivo {
      * @param param Argv do programa com o arquivo.
      * @throws FileNotFoundException Erro caso o arquivo seja inválido
      */
-    public LeitorArquivo(String param) {
+    public manipularArquivo(String param) {
         try {
             this.arquivo = new File(param);
             scan = new Scanner(arquivo);
@@ -54,6 +57,23 @@ public class LeitorArquivo {
             System.out.println(e.getMessage());
 
             System.exit(0);
+        }
+    }
+
+    public void escreverArvore(Arvore arvore, int quantCasas, int limitadorAresta) {
+        try {
+            this.arquivoSaida = new FileWriter("../data/arvoreSaida.txt");
+            PrintWriter gravar = new PrintWriter(arquivoSaida);
+            gravar.print("Quantidade de Vértices: " + quantCasas + " / " + "Quantidade de arestas: " + limitadorAresta);
+            for (Aresta aresta : arvore.getArvoreArestas()) {
+                gravar.print(
+                        "\n" + aresta.getVertice1() + " -> " + aresta.getVertice2() + " Custo: " + aresta.getCusto());
+            }
+            gravar.print("\nCusto Total: " + arvore.getCustoTotal());
+
+            gravar.close();
+        } catch (Exception e) {
+            System.out.println("Erro ao escrever no arquivo: " + e.getMessage() + "\nEncerrando aplicação.");
         }
     }
 }

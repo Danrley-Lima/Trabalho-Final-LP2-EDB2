@@ -4,17 +4,17 @@ import java.util.List;
 public class Main {
 	public static void main(String[] args) throws FileNotFoundException {
 		Grafo grafo = new Grafo();
-		LeitorArquivo leitor = new LeitorArquivo(args[0]);
+		manipularArquivo arquivo = new manipularArquivo(args[0]);
 
 		System.out.println("----- Lendo os dados do arquivo -----");
-		int quantCasas = leitor.lerQuantCasas();
-		int limitadorArestas = leitor.lerLimitadorAresta();
+		int quantCasas = arquivo.lerQuantCasas();
+		int limitadorArestas = arquivo.lerLimitadorAresta();
 
 		for (int i = 0; i < quantCasas; i++) {
 			grafo.addVertice(i, limitadorArestas);
 		}
 
-		leitor.construirArestas(grafo, quantCasas);
+		arquivo.construirArestas(grafo, quantCasas);
 
 		System.out.println("\n----- Tudo pronto! Gerando árvores... -----");
 		List<Aresta> arestas = grafo.getArestas();
@@ -28,5 +28,7 @@ public class Main {
 		for (Aresta a : arvoreMinima) {
 			System.out.println(a.getVertice1() + " -> " + a.getVertice2() + " Custo: " + a.getCusto());
 		}
+
+		arquivo.escreverArvore(grafo.getArvoreMinima(), quantCasas, limitadorArestas);
 	}
 }
