@@ -18,13 +18,5 @@
             "projectName": "TrabUnidade3",
             "args": "data/entrada.txt"
         },
-        {
-            "type": "java",
-            "name": "Launch Main(1)",
-            "request": "launch",
-            "mainClass": "Main",
-            "projectName": "Trabalho-Final-LP2-EDB2_e925468e",
-            "args": "data/entrada.txt"
-        }
     ]
 }

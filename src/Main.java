@@ -7,7 +7,7 @@ import Grafo.Grafo;
 import InOut.manipularArquivo;
 import interfaceGrafica.InterfaceGrafica;
 
-public class Main{
+public class Main {
 	public static void main(String[] args) throws FileNotFoundException {
 		Grafo grafo = new Grafo();
 		manipularArquivo arquivo = new manipularArquivo(args[0]);
@@ -36,7 +36,7 @@ public class Main{
 		}
 
 		arquivo.escreverArvore(grafo.getArvoreMinima(), quantCasas, limitadorArestas);
-		
+
 		InterfaceGrafica interf = new InterfaceGrafica();
 		interf.gerarGrafo(grafo);
 	}
