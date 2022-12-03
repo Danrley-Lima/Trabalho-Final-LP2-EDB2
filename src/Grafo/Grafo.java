@@ -7,14 +7,10 @@ import Arvore.Arvore;
 import ConjuntoDisjunto.ConjuntoDisjunto;
 import InOut.ErroCustoAresta;
 
-public class Grafo {
-	private List<Vertice> vertices;
-	private List<Aresta> arestas;
+public class Grafo extends GrafoAbstrato{
 	private Arvore arvoreMinima;
 
-	public Grafo() {
-		this.vertices = new ArrayList<>();
-		this.arestas = new ArrayList<>();
+	public Grafo(){
 		this.arvoreMinima = null;
 	}
 
@@ -24,6 +20,7 @@ public class Grafo {
 	 * 
 	 * @param id Identificador do vértice (casa)
 	 */
+	@Override
 	public void addVertice(int id, int grauMax) {
 		Vertice novoVertice = new Vertice(id, grauMax);
 		vertices.add(novoVertice);
@@ -39,6 +36,7 @@ public class Grafo {
 	 * 
 	 * @param custo Custo da conexão
 	 */
+	@Override
 	public void addAresta(Vertice vertice1, Vertice vertice2, int custo) throws ErroCustoAresta {
 		if (custo == 0) {
 			throw new ErroCustoAresta();
@@ -51,6 +49,7 @@ public class Grafo {
 		return;
 	}
 
+	@Override
 	public void gerarArvore(Aresta[] vet) {
 		List<Aresta> arvoreMontada = new ArrayList<>();
 		Aresta[] copia = vet.clone();
@@ -122,16 +121,8 @@ public class Grafo {
 			}
 		}
 	}
-
+	
 	public Arvore getArvoreMinima() {
 		return arvoreMinima;
-	}
-
-	public List<Vertice> getVertices() {
-		return vertices;
-	}
-
-	public List<Aresta> getArestas() {
-		return arestas;
 	}
 }

@@ -4,13 +4,13 @@ import java.util.List;
 import Assets.Combinacao;
 import Grafo.Aresta;
 import Grafo.Grafo;
-import InOut.ManipularArquivos;
+import InOut.ManipularArquivo;
 import interfaceGrafica.InterfaceGrafica;
 
 public class Main {
 	public static void main(String[] args) throws FileNotFoundException {
 		Grafo grafo = new Grafo();
-		ManipularArquivos arquivo = new ManipularArquivos(args[0]);
+		ManipularArquivo arquivo = new ManipularArquivo(args[0]);
 
 		System.out.println("----- Lendo os dados do arquivo -----");
 		int quantCasas = arquivo.lerQuantCasas();
