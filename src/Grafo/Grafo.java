@@ -94,25 +94,25 @@ public class Grafo {
 
 	public void geraArvoresComRestricao(Arvore arvoreMont) {
 		List<Aresta> arestasAtuais = new ArrayList<>();
-		boolean achou = false;
+		boolean eInvalida = false;
 		arestasAtuais = arvoreMont.getArvoreArestas();
 
 		for (int j = 0; j < arestasAtuais.size(); j++) {
-			achou = false;
+			eInvalida = false;
 			int grauMax = arestasAtuais.get(j).getVertice1().getGrauMax();
 			if (arestasAtuais.get(j).getVertice1().getGrau() > grauMax
 					|| arestasAtuais.get(j).getVertice2().getGrau() > grauMax) {
-				achou = true;
+				eInvalida = true;
 				break;
 			}
 
 			if (arestasAtuais.size() < vertices.size() - 1) {
-				achou = true;
+				eInvalida = true;
 				break;
 			}
 		}
 
-		if (!achou) {
+		if (!eInvalida) {
 			if (arvoreMinima == null) {
 				arvoreMinima = arvoreMont;
 			} else {
