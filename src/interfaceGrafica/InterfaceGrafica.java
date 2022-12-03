@@ -23,6 +23,21 @@ public class InterfaceGrafica implements InterfaceMonta{
 			montaGrafo(arestasMinimas, 2);
 			//montaGrafo(grafo.getArestas(), 2);
 			System.setProperty("org.graphstream.ui", "swing");
+			
+			String estilo = ""
+					+ "node {"
+					+ "size: 60px, 60px;"
+					+ "fill-mode: image-scaled;"
+					+ "fill-image:url('data/Casinha.png');"
+					+ "text-visibility-mode: normal;"
+					+ "text-alignment: above;"
+					+ "}"
+					+ "edge{"
+					+ "arrow-shape: arrow;"
+					+ "}";			
+			
+			graph.setAttribute("ui.stylesheet", estilo);
+			
 			graph.display();
 	}
 
