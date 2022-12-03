@@ -1,4 +1,4 @@
-Quantidade de VÃ©rtices: 5 / Quantidade de arestas: 2
+Quantidade de Vértices: 5 / Quantidade de arestas: 2
 Casa 0 -> Casa 1 Custo: 20
 Casa 1 -> Casa 2 Custo: 13
 Casa 2 -> Casa 3 Custo: 11
