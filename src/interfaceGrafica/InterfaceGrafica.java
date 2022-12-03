@@ -20,21 +20,27 @@ public class InterfaceGrafica implements InterfaceMonta{
 			List<Aresta> arestasMinimas = arvoreMinima.getArvoreArestas();
 			List<Vertice> vertices = grafo.getVertices();
 			montaGrafo(vertices);
-			montaGrafo(arestasMinimas, 2);
-			//montaGrafo(grafo.getArestas(), 2);
+			montaGrafo(arestasMinimas, true);
+			//montaGrafo(grafo.getArestas(), true);
 			System.setProperty("org.graphstream.ui", "swing");
 			
 			String estilo = ""
+					+ "graph{"
+					+ "fill-color: #FFF, #BBB;"
+					+ "fill-mode: gradient-radial;"
+					+ "}"
 					+ "node {"
-					+ "size: 60px, 60px;"
+					+ "size: 40px, 40px;"
 					+ "fill-mode: image-scaled;"
 					+ "fill-image:url('data/Casinha.png');"
+					+ "text-mode: normal;"
 					+ "text-visibility-mode: normal;"
-					+ "text-alignment: above;"
+					+ "text-alignment: under;"
 					+ "}"
 					+ "edge{"
-					+ "arrow-shape: arrow;"
-					+ "}";			
+					+ "size: 4px;"
+					+ "fill-color: #32bd28;"
+					+ "}";
 			
 			graph.setAttribute("ui.stylesheet", estilo);
 			
@@ -42,7 +48,7 @@ public class InterfaceGrafica implements InterfaceMonta{
 	}
 
 	@Override
-	public void montaGrafo(List<Aresta> arestas, int numero){
+	public void montaGrafo(List<Aresta> arestas, boolean isAresta){
 		int cont = 0;
 		for(Aresta a:arestas){
 			graph.addEdge(Integer.toString(cont++), a.getVertice1().toString(), a.getVertice2().toString());
