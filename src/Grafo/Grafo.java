@@ -11,6 +11,7 @@ public class Grafo extends GrafoAbstrato{
 	private Arvore arvoreMinima;
 
 	public Grafo(){
+		super();
 		this.arvoreMinima = null;
 	}
 

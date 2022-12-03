@@ -1,11 +1,6 @@
-Quantidade de Vértices: 10 / Quantidade de arestas: 3
-Casa 0 -> Casa 9 Custo: 12
-Casa 1 -> Casa 2 Custo: 6
-Casa 1 -> Casa 5 Custo: 15
-Casa 1 -> Casa 6 Custo: 13
-Casa 2 -> Casa 4 Custo: 1
-Casa 3 -> Casa 6 Custo: 12
-Casa 4 -> Casa 8 Custo: 4
-Casa 4 -> Casa 9 Custo: 22
-Casa 5 -> Casa 7 Custo: 31
-Custo Total: 116
+Quantidade de Vértices: 5 / Quantidade de arestas: 2
+Casa 0 -> Casa 1 Custo: 20
+Casa 1 -> Casa 2 Custo: 13
+Casa 2 -> Casa 3 Custo: 11
+Casa 3 -> Casa 4 Custo: 12
+Custo Total: 56
