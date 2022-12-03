@@ -84,7 +84,6 @@ public class Grafo {
 			custoTotal += a.getCusto();
 		}
 		Arvore arvoreMont = new Arvore(arvoreMontada, custoTotal);
-
 		geraArvoresComRestricao(arvoreMont);
 
 		for (Vertice vertice : vertices) {

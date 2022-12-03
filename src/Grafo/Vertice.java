@@ -9,7 +9,7 @@ public class Vertice extends ConjuntoDisjunto<Vertice> {
 	private int id;
 	private List<Aresta> ligacoes;
 	private int grau;
-	public int grauMax;
+	private int grauMax;
 
 	Vertice(int id, int grauMax) {
 		this.id = id;

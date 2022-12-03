@@ -1,6 +1,6 @@
 package Grafo;
 
-public class Aresta implements Comparable<Aresta> {
+public class Aresta {
 	private int custo;
 	private Vertice vertice1;
 	private Vertice vertice2;
@@ -9,10 +9,6 @@ public class Aresta implements Comparable<Aresta> {
 		this.vertice1 = vertice1;
 		this.vertice2 = vertice2;
 		this.custo = custo;
-	}
-
-	public int compareTo(Aresta outraAresta) {
-		return this.custo - outraAresta.getCusto();
 	}
 
 	public int getCusto() {

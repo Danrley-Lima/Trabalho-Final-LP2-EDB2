@@ -4,13 +4,13 @@ import java.util.List;
 import Assets.Combinacao;
 import Grafo.Aresta;
 import Grafo.Grafo;
-import InOut.manipularArquivo;
+import InOut.ManipularArquivos;
 import interfaceGrafica.InterfaceGrafica;
 
 public class Main {
 	public static void main(String[] args) throws FileNotFoundException {
 		Grafo grafo = new Grafo();
-		manipularArquivo arquivo = new manipularArquivo(args[0]);
+		ManipularArquivos arquivo = new ManipularArquivos(args[0]);
 
 		System.out.println("----- Lendo os dados do arquivo -----");
 		int quantCasas = arquivo.lerQuantCasas();
@@ -25,7 +25,7 @@ public class Main {
 		System.out.println("\n----- Tudo pronto! Gerando árvores... -----");
 		List<Aresta> arestas = grafo.getArestas();
 
-		Combinacao.makeCombi(arestas, grafo.getVertices().size() - 1, grafo);
+		Combinacao.combinacao(arestas, grafo.getVertices().size() - 1, grafo);
 
 		List<Aresta> arvoreMinima = grafo.getArvoreMinima().getArvoreArestas();
 
