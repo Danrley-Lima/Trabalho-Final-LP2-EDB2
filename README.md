@@ -25,7 +25,12 @@ Preencher aqui ainda.
   4. - Clique setinha ao lado do símbolo de "Play" e escolha "Run Java".<br><img src="https://user-images.githubusercontent.com/71523376/205457448-0e2c8ee4-08be-4a2c-904c-fc046ddc8734.png">
    
 * ## Como rodar no Eclipse
-   
+   1. - Abra o Eclipse
+   2. - Abra o projeto
+   3. - Selecione run configurations
+   4. - Selecione o arquivo Main do projeto e selecione a aba "Arguments"
+   5. - Em Arguments, digite o caminho relativo ao arquivo que deseja passar por parâmetro
+   6. - Ex.: "./data/entrada.txt"
 
 
 # 🤝 Colaboradores
