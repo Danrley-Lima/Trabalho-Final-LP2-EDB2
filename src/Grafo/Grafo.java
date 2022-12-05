@@ -7,10 +7,10 @@ import Arvore.Arvore;
 import ConjuntoDisjunto.ConjuntoDisjunto;
 import InOut.ErroCustoAresta;
 
-public class Grafo extends GrafoAbstrato{
+public class Grafo extends GrafoAbstrato {
 	private Arvore arvoreMinima;
 
-	public Grafo(){
+	public Grafo() {
 		super();
 		this.arvoreMinima = null;
 	}
@@ -122,7 +122,7 @@ public class Grafo extends GrafoAbstrato{
 			}
 		}
 	}
-	
+
 	public Arvore getArvoreMinima() {
 		return arvoreMinima;
 	}

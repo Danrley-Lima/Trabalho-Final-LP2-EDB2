@@ -31,6 +31,7 @@ public class Main {
 
 		System.out.println("\n***** ÁRVORE MÍNIMA*****");
 		System.out.println("Custo total: " + grafo.getArvoreMinima().getCustoTotal());
+
 		for (Aresta a : arvoreMinima) {
 			System.out.println(a.getVertice1() + " -> " + a.getVertice2() + " Custo: " + a.getCusto());
 		}

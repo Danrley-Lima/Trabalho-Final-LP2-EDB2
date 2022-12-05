@@ -2,11 +2,9 @@ package Arvore;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import Assets.Dados;
 import Grafo.Aresta;
 
-public class Arvore extends Dados<Aresta> {
+public class Arvore {
     private List<Aresta> arvoreArestas;
     private int custoTotal = 0;
 
