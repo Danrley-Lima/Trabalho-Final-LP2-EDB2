@@ -6,7 +6,29 @@
 <br>
 
 # 🎲 Introdução
-Preencher aqui ainda.
+Neste projeto foi criado uma solução para um pseudo problema de redes usando o
+paradigma de programação orientada a objetos, onde é preciso conectar todas as casas
+(vértices) com o menor custo possível e no máximo d ligações por casa, em outras
+palavras é um problema de árvore geradora mínima com restrição de grau.
+
+Utilizamos um algoritmo para gerar as combinações possíveis de arestas a partir
+de um grafo completo. Com as combinações, podemos gerar árvores através do algoritmo
+de Kruskal que utiliza a estrutura de dados Conjunto Disjunto para evitar ciclos,
+verificando o representante de cada conjunto e gerando uma árvore a cada combinação única
+de arestas. A primeira árvore válida gerada é armazenada e a cada nova árvore válida
+gerada é feita a comparação de qual tem o menor custo e substituindo-a caso a nova
+árvore tenha custo total menor do que a anterior.
+
+## Grafo de entrada
+<p align="center">
+<img src="https://user-images.githubusercontent.com/71523376/205799330-978b8d36-fe14-410c-8fbe-b5a5d9785d71.png" width="400">
+</p>
+
+## Grafo de saída
+<p align="center">
+<img src="https://user-images.githubusercontent.com/71523376/205799362-2f7f1f9d-c275-4b53-aeac-a74e54767e9c.png" width="400">
+</p>
+
 # ⚙️ Requisitos
 
 
