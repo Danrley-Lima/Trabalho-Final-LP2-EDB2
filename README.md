@@ -19,6 +19,8 @@ de arestas. A primeira árvore válida gerada é armazenada e a cada nova árvor
 gerada é feita a comparação de qual tem o menor custo e substituindo-a caso a nova
 árvore tenha custo total menor do que a anterior.
 
+Para criação de interface foi utilizado a biblioteca <a href="https://graphstream-project.org/">GraphStream</a>.
+
 ## Grafo de entrada
 <p align="center">
 <img src="https://user-images.githubusercontent.com/71523376/205799330-978b8d36-fe14-410c-8fbe-b5a5d9785d71.png" width="400">
